@@ -18,7 +18,8 @@ tools:context=".MainActivity">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -34,7 +35,7 @@ tools:context=".MainActivity">
                 android:text="@string/side_meron"
                 android:fontFamily="sans-serif-black"
                 android:textFontWeight="700"
-                android:textSize="26dp"
+                android:textSize="26sp"
                 android:textAlignment="center"
                 android:paddingBottom="22dp"
                 android:paddingTop="22dp"
@@ -65,16 +66,18 @@ tools:context=".MainActivity">
                 android:paddingBottom="22dp">
 
                 <RadioButton
+                    android:id="@+id/rbMeronColorLightRed"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:text="@string/color_light_red"
-                    android:id="@+id/rbMeronColorLightRed" />
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
                 <RadioButton
+                    android:id="@+id/rbMeronColorDarkRed"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:text="@string/color_dark_red"
-                    android:id="@+id/rbMeronColorDarkRed" />
+                    tools:ignore="DuplicateSpeakableTextCheck" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -221,7 +224,7 @@ tools:context=".MainActivity">
                 android:id="@+id/tvMeronBetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Betting"
+                android:text="@string/category_betting"
                 android:fontFamily="sans-serif-black"
                 android:textColor="#ff0000"
                 android:textFontWeight="700"
@@ -257,6 +260,8 @@ tools:context=".MainActivity">
                 android:textFontWeight="700"
                 android:textSize="16sp"
                 android:textColor="@color/white"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:backgroundTint="#ff0000"
                 android:id="@+id/btnMeron" />
 
@@ -275,7 +280,7 @@ tools:context=".MainActivity">
                 android:text="@string/side_wala"
                 android:fontFamily="sans-serif-black"
                 android:textFontWeight="700"
-                android:textSize="26dp"
+                android:textSize="26sp"
                 android:textAlignment="center"
                 android:paddingBottom="22dp"
                 android:paddingTop="22dp"
@@ -486,6 +491,8 @@ tools:context=".MainActivity">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:text="@string/winner_wala"
                 android:textFontWeight="700"
                 android:textSize="16sp"
@@ -496,6 +503,8 @@ tools:context=".MainActivity">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:text="@string/winner_draw"
                 android:textFontWeight="700"
                 android:textSize="16sp"
