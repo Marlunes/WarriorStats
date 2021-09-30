@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">WarriorCockStats</string>
+
+    <string name="side_meron">MERON</string>
+    <string name="side_wala">WALA</string>
+
+    <string name="winner_meron">MERON WINS</string>
+    <string name="winner_wala">WALA WINS</string>
+    <string name="winner_draw">DRAW</string>
+
+    <string name="category_color">Color</string>
+    <string name="color_dark_red">Dark Red</string>
+    <string name="color_light_red">Light Red</string>
+    <string name="color_gold">Gold</string>
+    <string name="color_white">White / White Choco / Sinibalang</string>
+    <string name="color_hennie">Hennie / Binabae</string>
+    <string name="color_dome">Dome / Bulik</string>
+    <string name="color_hatch">Hatch Gray / Talisayin / Hiraw</string>
+    <string name="color_blue">Blue Mug / Abuhin</string>
+    <string name="color_black">Black Mug / Itim</string>
+
+    <string name="category_legs">Legs</string>
+    <string name="legs_dark">Dark</string>
+    <string name="legs_white">White</string>
+    <string name="legs_yellow">Yellow</string>
+    <string name="legs_red">Red</string>
+
+    <string name="category_tail">Tail</string>
+    <string name="tail_black">Black</string>
+    <string name="tail_white">White</string>
+    <string name="tail_with_black">White With Black</string>
+    <string name="tail_with_white">Black With White</string>
+    <string name="tail_mix">Mix</string>
+
+    <string name="category_betting">Betting</string>
+    <string name="betting_dehado">Dehado</string>
+    <string name="betting_llamado">Llamado</string>
+
 </resources>
