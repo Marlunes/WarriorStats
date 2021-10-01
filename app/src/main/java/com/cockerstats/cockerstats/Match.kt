@@ -53,4 +53,6 @@ data class CockAttributes (val color: Color? = null,
                            val betting: Betting? = null,
                            val withComb: Boolean? = null) {
 
+
+
 }

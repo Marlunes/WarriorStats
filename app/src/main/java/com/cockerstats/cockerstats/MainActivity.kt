@@ -2,14 +2,11 @@ package com.cockerstats.cockerstats
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioButton
+import android.view.View
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.cockerstats.cockerstats.databinding.ActivityMainBinding
 import com.google.firebase.database.*
-import java.util.jar.Attributes
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    maxID = dataSnapshot.childrenCount
+                    maxID = dataSnapshot.childrenCount + 1
                 }
             }
 
@@ -50,63 +47,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun bindViews() {
 
-        val meronWinsButton = binding.btnMeron
-        val walaWinsButton = binding.btnWala
-        val drawButton = binding.btnDraw
+        binding.btnMeron.setOnClickListener(actionListener)
+        binding.btnWala.setOnClickListener(actionListener)
+        binding.btnDraw.setOnClickListener(actionListener)
 
-        val meronColor = getColorName(binding.rbgMeronColor.checkedRadioButtonId)
-        val meronLeg = getLegName(binding.rbgMeronLeg.checkedRadioButtonId)
-        val meronTail = getTailName(binding.rbgMeronTail.checkedRadioButtonId)
-        val meronBetting = getBettingName(binding.rbgMeronBetting.checkedRadioButtonId)
-        val meronComb = getCombValue(binding.rbgMeronComb.checkedRadioButtonId)
+        binding.rbMeronBettingDehado.setOnClickListener(bettingListener)
+        binding.rbMeronBettingDehado.setOnClickListener(bettingListener)
 
-        val walaColor = getColorName(binding.rbgWalaColor.checkedRadioButtonId)
-        val walaLeg = getLegName(binding.rbgWalaLeg.checkedRadioButtonId)
-        val walaTail = getTailName(binding.rbgWalaTail.checkedRadioButtonId)
-        val walaBetting = getBettingName(binding.rbgWalaBetting.checkedRadioButtonId)
-        val walaComb = getCombValue(binding.rbgWalaComb.checkedRadioButtonId)
-
-        var meron = CockAttributes(meronColor, meronLeg, meronTail, meronBetting, meronComb)
-        var wala = CockAttributes(walaColor, walaLeg, walaTail, walaBetting, walaComb)
-
-        meronWinsButton.setOnClickListener {
-
-            var match = Match(meron, wala, ResultSide.MERON)
-
-            database.child(maxID.toString()).setValue(match).addOnSuccessListener {
-                clear()
-                Toast.makeText(this, "Success Update", Toast.LENGTH_SHORT)
-            }.addOnFailureListener {
-                Toast.makeText(this, "Error Update", Toast.LENGTH_SHORT)
-            }
-
-        }
-
-        walaWinsButton.setOnClickListener {
-
-            var match = Match(meron, wala, ResultSide.WALA)
-
-            database.child(maxID.toString()).setValue(match).addOnSuccessListener {
-                clear()
-                Toast.makeText(this, "Success Update", Toast.LENGTH_SHORT)
-            }.addOnFailureListener {
-                Toast.makeText(this, "Error Update", Toast.LENGTH_SHORT)
-            }
-
-        }
-
-        drawButton.setOnClickListener {
-
-            var match = Match(meron, wala, ResultSide.DRAW)
-
-            database.child(maxID.toString()).setValue(match).addOnSuccessListener {
-                clear()
-                Toast.makeText(this, "Success Update", Toast.LENGTH_SHORT)
-            }.addOnFailureListener {
-                Toast.makeText(this, "Error Update", Toast.LENGTH_SHORT)
-            }
-
-        }
+        binding.rbWalaBettingDehado.setOnClickListener(bettingListener)
+        binding.rbWalaBettingLlamado.setOnClickListener(bettingListener)
 
     }
 
@@ -231,6 +180,64 @@ class MainActivity : AppCompatActivity() {
         binding.rbgMeronTail.clearCheck()
         binding.rbgMeronBetting.clearCheck()
         binding.rbgMeronComb.clearCheck()
+    }
+
+    private val actionListener = View.OnClickListener { view ->
+
+        val meronColor = getColorName(binding.rbgMeronColor.checkedRadioButtonId)
+        val meronLeg = getLegName(binding.rbgMeronLeg.checkedRadioButtonId)
+        val meronTail = getTailName(binding.rbgMeronTail.checkedRadioButtonId)
+        val meronBetting = getBettingName(binding.rbgMeronBetting.checkedRadioButtonId)
+        val meronComb = getCombValue(binding.rbgMeronComb.checkedRadioButtonId)
+
+        val walaColor = getColorName(binding.rbgWalaColor.checkedRadioButtonId)
+        val walaLeg = getLegName(binding.rbgWalaLeg.checkedRadioButtonId)
+        val walaTail = getTailName(binding.rbgWalaTail.checkedRadioButtonId)
+        val walaBetting = getBettingName(binding.rbgWalaBetting.checkedRadioButtonId)
+        val walaComb = getCombValue(binding.rbgWalaComb.checkedRadioButtonId)
+
+        val meron = CockAttributes(meronColor, meronLeg, meronTail, meronBetting, meronComb)
+        val wala = CockAttributes(walaColor, walaLeg, walaTail, walaBetting, walaComb)
+        var match = Match(meron, wala, ResultSide.MERON)
+
+        when (view.id) {
+            R.id.btnMeron -> {
+                match = Match(meron, wala, ResultSide.MERON)
+            }
+            R.id.btnWala -> {
+                match = Match(meron, wala, ResultSide.WALA)
+            }
+            R.id.btnDraw -> {
+                match = Match(meron, wala, ResultSide.DRAW)
+            }
+        }
+
+        database.child(maxID.toString()).setValue(match).addOnSuccessListener {
+            clear()
+            Toast.makeText(this, "Success Update", Toast.LENGTH_SHORT)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Error Update", Toast.LENGTH_SHORT)
+        }
+
+    }
+
+    private val bettingListener = View.OnClickListener { view ->
+
+        when (view.id) {
+            R.id.rbMeronBettingDehado -> {
+                binding.rbgWalaBetting.check(binding.rbWalaBettingLlamado.id)
+            }
+            R.id.rbMeronBettingLlamado -> {
+                binding.rbgWalaBetting.check(binding.rbWalaBettingDehado.id)
+            }
+            R.id.rbWalaBettingDehado -> {
+                binding.rbgMeronBetting.check(binding.rbMeronBettingLlamado.id)
+            }
+            R.id.rbWalaBettingLlamado -> {
+                binding.rbgMeronBetting.check(binding.rbMeronBettingDehado.id)
+            }
+        }
+
     }
 
 }
