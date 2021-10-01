@@ -1,9 +1,9 @@
 package com.cockerstats.cockerstats
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioGroup
 import android.widget.Toast
 import com.cockerstats.cockerstats.databinding.ActivityMainBinding
 import com.google.firebase.database.*
@@ -200,24 +200,40 @@ class MainActivity : AppCompatActivity() {
         val wala = CockAttributes(walaColor, walaLeg, walaTail, walaBetting, walaComb)
         var match = Match(meron, wala, ResultSide.MERON)
 
+        var sideText = "WALA"
+
         when (view.id) {
             R.id.btnMeron -> {
                 match = Match(meron, wala, ResultSide.MERON)
+                sideText = "MERON"
             }
             R.id.btnWala -> {
                 match = Match(meron, wala, ResultSide.WALA)
+                sideText = "WALA"
             }
             R.id.btnDraw -> {
                 match = Match(meron, wala, ResultSide.DRAW)
+                sideText = "DRAW"
             }
         }
 
-        database.child(maxID.toString()).setValue(match).addOnSuccessListener {
-            clear()
-            Toast.makeText(this, "Success Update", Toast.LENGTH_SHORT)
-        }.addOnFailureListener {
-            Toast.makeText(this, "Error Update", Toast.LENGTH_SHORT)
-        }
+        val alertDialog = AlertDialog.Builder(this)
+
+        alertDialog.apply {
+            setTitle("WINNER IS $sideText")
+            setMessage("Are you sure winner is $sideText?")
+            setPositiveButton("YES I AM SURE") { _, _ ->
+                database.child(maxID.toString()).setValue(match).addOnSuccessListener {
+                    clear()
+                    Toast.makeText(applicationContext,"Success Request",Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(applicationContext,"Error Request",Toast.LENGTH_LONG).show()
+                }
+            }
+            setNegativeButton("CANCEL") { _, _ ->
+
+            }
+        }.create().show()
 
     }
 
