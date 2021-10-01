@@ -88,7 +88,7 @@ tools:context=".MainActivity">
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:text="@string/color_gold"
+                    android:text="@string/color_hennie"
                     android:id="@+id/rbMeronColorWhite" />
 
                 <RadioButton
@@ -221,6 +221,38 @@ tools:context=".MainActivity">
             </RadioGroup>
 
             <TextView
+                android:id="@+id/tvMeronComb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_comb"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#ff0000"
+                android:textFontWeight="700"
+                android:textSize="18sp"
+                android:paddingBottom="12dp" />
+
+            <RadioGroup
+                android:id="@+id/rbgMeronComb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:paddingBottom="22dp" >
+
+                <RadioButton
+                    android:id="@+id/rbMeronWithComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_with_comb" />
+
+                <RadioButton
+                    android:id="@+id/rbMeronWithoutComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_without_comb" />
+
+            </RadioGroup>
+
+            <TextView
                 android:id="@+id/tvMeronBetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -256,6 +288,7 @@ tools:context=".MainActivity">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/winner_meron"
                 android:textFontWeight="700"
                 android:textSize="16sp"
@@ -457,6 +490,38 @@ tools:context=".MainActivity">
             </RadioGroup>
 
             <TextView
+                android:id="@+id/tvWalaComb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_comb"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#0000ff"
+                android:textFontWeight="700"
+                android:textSize="18sp"
+                android:paddingBottom="12dp" />
+
+            <RadioGroup
+                android:id="@+id/rbgWalaComb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:paddingBottom="22dp">
+
+                <RadioButton
+                    android:id="@+id/rbWalaWithComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_with_comb" />
+
+                <RadioButton
+                    android:id="@+id/rbWalaWithoutComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_without_comb" />
+
+            </RadioGroup>
+
+            <TextView
                 android:id="@+id/tvWalaBetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -491,6 +556,7 @@ tools:context=".MainActivity">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:text="@string/winner_wala"
@@ -503,8 +569,8 @@ tools:context=".MainActivity">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"
                 android:text="@string/winner_draw"
                 android:textFontWeight="700"
                 android:textSize="16sp"

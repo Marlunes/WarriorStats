@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "529541221539",
+    "project_id": "warriorstats-2ce8a",
+    "storage_bucket": "warriorstats-2ce8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529541221539:android:e87c2686a32d3b36da4316",
+        "android_client_info": {
+          "package_name": "com.cockerstats.cockerstats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529541221539-dgsnt3upchsqvhj0bm3s28hn8rh3bu1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5cMen6m3JsX14GnYSCVRyF1Ho6N13DiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529541221539-dgsnt3upchsqvhj0bm3s28hn8rh3bu1j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -39,9 +39,7 @@ tools:context=".MainActivity">
                 android:paddingBottom="22dp"
                 android:paddingTop="22dp"
                 android:textColor="#ffffff"
-                android:background="#ff0000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:background="#ff0000" />
 
             <TextView
                 android:id="@+id/tvMeronColorTitle"
@@ -52,15 +50,12 @@ tools:context=".MainActivity">
                 android:textFontWeight="700"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMeronMainTitle"
                 android:paddingBottom="12dp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                app:layout_constraintTop_toBottomOf="@+id/tvMeronColorTitle"
                 android:id="@+id/rbgMeronColor"
                 android:paddingBottom="22dp">
 
@@ -85,7 +80,7 @@ tools:context=".MainActivity">
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
-                    android:text="@string/color_gold"
+                    android:text="@string/color_white"
                     android:id="@+id/rbMeronColorWhite" />
 
                 <RadioButton
@@ -173,18 +168,14 @@ tools:context=".MainActivity">
                 android:textColor="#ff0000"
                 android:textFontWeight="700"
                 android:textSize="18sp"
-                android:paddingBottom="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rbgMeronColor"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:paddingBottom="12dp" />
 
             <RadioGroup
                 android:id="@+id/rbgMeronTail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:paddingBottom="22dp"
-                app:layout_constraintTop_toBottomOf="@+id/tvMeronTail">
+                android:paddingBottom="22dp" >
 
                 <RadioButton
                     android:id="@+id/rbMeronTailWhite"
@@ -218,6 +209,38 @@ tools:context=".MainActivity">
             </RadioGroup>
 
             <TextView
+                android:id="@+id/tvMeronComb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_comb"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#ff0000"
+                android:textFontWeight="700"
+                android:textSize="18sp"
+                android:paddingBottom="12dp" />
+
+            <RadioGroup
+                android:id="@+id/rbgMeronComb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:paddingBottom="22dp" >
+
+                <RadioButton
+                    android:id="@+id/rbMeronWithComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_with_comb" />
+
+                <RadioButton
+                    android:id="@+id/rbMeronWithoutComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_without_comb" />
+
+            </RadioGroup>
+
+            <TextView
                 android:id="@+id/tvMeronBetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -233,17 +256,16 @@ tools:context=".MainActivity">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:paddingBottom="22dp"
-                app:layout_constraintTop_toBottomOf="@+id/tvMeronBetting">
+                android:paddingBottom="22dp" >
 
                 <RadioButton
-                    android:id="@+id/rbMeronDehado"
+                    android:id="@+id/rbMeronBettingDehado"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:text="@string/betting_dehado" />
 
                 <RadioButton
-                    android:id="@+id/rbMeronLlamado"
+                    android:id="@+id/rbMeronBettingLlamado"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:text="@string/betting_llamado" />
@@ -297,7 +319,6 @@ tools:context=".MainActivity">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                app:layout_constraintTop_toBottomOf="@+id/tvWalaColorTitle"
                 android:id="@+id/rbgWalaColor"
                 android:paddingBottom="22dp">
 
@@ -452,6 +473,38 @@ tools:context=".MainActivity">
             </RadioGroup>
 
             <TextView
+                android:id="@+id/tvWalaComb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_comb"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#0000ff"
+                android:textFontWeight="700"
+                android:textSize="18sp"
+                android:paddingBottom="12dp" />
+
+            <RadioGroup
+                android:id="@+id/rbgWalaComb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:paddingBottom="22dp">
+
+                <RadioButton
+                    android:id="@+id/rbWalaWithComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_with_comb" />
+
+                <RadioButton
+                    android:id="@+id/rbWalaWithoutComb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/comb_without_comb" />
+
+            </RadioGroup>
+
+            <TextView
                 android:id="@+id/tvWalaBetting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -470,13 +523,13 @@ tools:context=".MainActivity">
                 android:paddingBottom="22dp">
 
                 <RadioButton
-                    android:id="@+id/rbWalaDehado"
+                    android:id="@+id/rbWalaBettingDehado"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:text="@string/betting_dehado" />
 
                 <RadioButton
-                    android:id="@+id/rbWalaLlamado"
+                    android:id="@+id/rbWalaBettingLlamado"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:text="@string/betting_llamado" />

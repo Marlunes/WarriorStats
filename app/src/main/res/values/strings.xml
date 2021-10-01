@@ -36,4 +36,8 @@
     <string name="betting_dehado">Dehado</string>
     <string name="betting_llamado">Llamado</string>
 
+    <string name="category_comb">Comb / Palong</string>
+    <string name="comb_with_comb">With Comb / May Palong</string>
+    <string name="comb_without_comb">Without Comb / Walang Palong</string>
+
 </resources>
