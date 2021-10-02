@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Toast
 import com.cockerstats.cockerstats.databinding.ActivityMainBinding
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        database = FirebaseDatabase.getInstance().getReference("Matches")
+        database = FirebaseDatabase.getInstance().getReference("Matches-${getDateTitle()}")
 
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -198,21 +200,21 @@ class MainActivity : AppCompatActivity() {
 
         val meron = CockAttributes(meronColor, meronLeg, meronTail, meronBetting, meronComb)
         val wala = CockAttributes(walaColor, walaLeg, walaTail, walaBetting, walaComb)
-        var match = Match(meron, wala, ResultSide.MERON)
+        var match = Match(meron, wala, ResultSide.MERON, getDateFull())
 
         var sideText = "WALA"
 
         when (view.id) {
             R.id.btnMeron -> {
-                match = Match(meron, wala, ResultSide.MERON)
+                match = Match(meron, wala, ResultSide.MERON, getDateFull())
                 sideText = "MERON"
             }
             R.id.btnWala -> {
-                match = Match(meron, wala, ResultSide.WALA)
+                match = Match(meron, wala, ResultSide.WALA, getDateFull())
                 sideText = "WALA"
             }
             R.id.btnDraw -> {
-                match = Match(meron, wala, ResultSide.DRAW)
+                match = Match(meron, wala, ResultSide.DRAW, getDateFull())
                 sideText = "DRAW"
             }
         }
@@ -254,6 +256,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun getDateFull(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
+        val currentDate = dateFormat.format(Date())
+
+        return currentDate.toString()
+    }
+
+    private fun getDateTitle(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val currentDate = dateFormat.format(Date())
+
+        return currentDate.toString()
     }
 
 }

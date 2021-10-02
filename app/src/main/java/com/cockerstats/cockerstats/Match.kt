@@ -43,7 +43,8 @@ enum class ResultSide {
 
 data class Match (val meron: CockAttributes,
                   val wala: CockAttributes,
-                  val winner: ResultSide) {
+                  val winner: ResultSide,
+                  val time: String) {
 
 }
 
